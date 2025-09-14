@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "expense-backend"
+version = "0.1.0"
+description = "Expense Settlement Backend"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+djangorestframework = "^3.14.0"
+gunicorn = "^21.2.0"
+psycopg2-binary = "^2.9"
+django-environ = "^0.10.0"
+drf-spectacular = "^0.26.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9"
+flake8 = "^6.1.0"
+mypy = "^1.6"
+pytest = "^7.4"
+pytest-django = "^4.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

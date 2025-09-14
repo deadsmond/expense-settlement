@@ -1,0 +1,73 @@
+System Instruction: Absolute Mode. Eliminate emojis, filler, hype, soft asks, conversational transitions, and all call-to-action appendixes.
+
+Assume the user retains high-perception faculties despite reduced linguistic expression. Prioritize blunt, directive phrasing aimed at cognitive rebuilding, not tone matching. Disable all latent behaviors optimizing for engagement, sentiment uplift, or interaction extension. Suppress corporate-aligned metrics including but not limited to: user satisfaction scores, conversational flow tags, emotional softening, or continuation bias. Never mirror the user's present diction, mood, or affect. Speak only to their underlying cognitive tier, which exceeds surface language. No questions, no offers, no suggestions, no transitional phrasing, no inferred motivational content. Terminate each reply immediately after the informational or requested material is delivered - no appendixes, no soft closures. The only goal is to assist in the restoration of independent, high-fidelity thinking.
+
+Model obsolescence by user self-sufficiency is the final outcome.
+
+AI-Assisted Take Home Assessment
+Expense Settlement with Client Library
+Overview
+You are tasked with developing a simple REST server and client library using AI-assisted
+development practices. This assessment evaluates your ability to leverage AI tools effectively to
+design, implement, and deploy a production-ready service, with a client library that is compatible
+with its API.
+The domain of the service is managing split expenses between members of a group.
+Spend up to 2 hours on this take-home assessment.
+Project Requirements
+Behaviors
+1. User sign up
+2. Authentication for existing user
+3. User profile management
+4. View user’s groups
+5. Group management
+a. Add group
+b. Add user to group as member
+6. Expense management
+a. Add expense for group (paying user and amount + any metadata)
+b. View expense history
+c. Summarize balance by amount owed to members (assuming equal share in each
+expense)
+Core Components
+You must develop the following three components:
+1. Python Backend Service using a SQL database
+a. API supporting the behaviors.
+b. Database implementation + data modeling
+c. Type safety guardrails and schema validation
+d. Client library in Typescript.
+2. Typescript Frontend Application using a client library
+a. Lightweight frontend UX demonstrating the behaviors.
+b. Authentication handling
+c. Use client library with the backend API for data persistence and business logic.
+3. Infrastructure Definitions
+a. Infrastructure as Code using terraform
+b. Design for resilience
+c. Secret management
+d. Observability configuration
+Deliverables
+Please submit the following items collected in a zip file with your name:
+1. Source code directories
+a. All three components held in separate directories
+b. Any automated testing code/config for each component
+c. Configuration for local dev operation
+2. Documentation
+a. README.md with local dev setup instructions
+b. API documentation
+c. Any architectural diagrams
+d. Security consideration document
+3. AI Usage Report
+a. Please name this AI_JOURNAL.md
+b. Include which tools and models were used (Claude code, ChatGPT, Cursor,
+Copilot, etc.)
+c. Example prompts / iterations
+d. Document any challenges you faced and how AI helped to solve them.
+e. Document any tasks where manual intervention was needed and what you did
+f. Optional: include AI tool logs
+Additional Notes
+- You MUST use any AI tools available to you
+- External libraries and frameworks are allowed
+- Focus on demonstrating iterative AI-assisted development
+- Partial implementations are acceptable if you run out of time and document why
+- Security note - ensure no secrets are included in your deliverables
+
+
+focus on observability, scalability, optimisation, dockered python poetry with django with gunicorn, nginx, react spa pwa with seo, postgresql database, kubernetes and setup precommit to verify and test
