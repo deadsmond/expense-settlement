@@ -4,6 +4,8 @@
 
 The Split Expenses App is a web application designed to help users manage and track shared expenses among friends, family, or groups. It provides a RESTful API for backend operations and a responsive frontend built with TypeScript and React.
 
+![Description](login.png)
+
 ## Technologies Used
 
 - **Backend**: Django, PostgreSQL
