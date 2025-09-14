@@ -1,47 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { Expense } from '../types';
-import { fetchExpenses } from '../api/client.ts';
+import React, { useState } from "react";
+import { TextField, Button, Box, Typography, Paper } from "@mui/material";
 
-const ExpenseList: React.FC = () => {
-    const [expenses, setExpenses] = useState<Expense[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+const ExpenseForm = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
+  const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
 
-    useEffect(() => {
-        const loadExpenses = async () => {
-            try {
-                const data = await fetchExpenses();
-                setExpenses(data);
-            } catch (err) {
-                setError('Failed to load expenses');
-            } finally {
-                setLoading(false);
-            }
-        };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit({ amount, description });
+    setAmount("");
+    setDescription("");
+  };
 
-        loadExpenses();
-    }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>{error}</div>;
-    }
-
-    return (
-        <div>
-            <h2>Expense List</h2>
-            <ul>
-                {expenses.map(expense => (
-                    <li key={expense.id}>
-                        {expense.description}: ${expense.amount}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <Paper elevation={3} sx={{ p: 3, maxWidth: 400, mx: "auto" }}>
+      <Typography variant="h6" gutterBottom>
+        Add Expense
+      </Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+      >
+        <TextField
+          label="Amount"
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+        />
+        <TextField
+          label="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Submit
+        </Button>
+      </Box>
+    </Paper>
+  );
 };
 
-export default ExpenseList;
+export default ExpenseForm;
