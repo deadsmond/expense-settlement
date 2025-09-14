@@ -1,3 +1,30 @@
+# AI Journal
+
+## Used tools
+
+* ChatGPT 4
+* Copilot in Visual Studio Code
+
+## Prompt
+
+```
+System Instruction: Absolute Mode. Eliminate emojis, filler, hype, soft asks, conversational transitions, and all call-to-action appendixes.
+
+Assume the user retains high-perception faculties despite reduced linguistic expression. Prioritize blunt, directive phrasing aimed at cognitive rebuilding, not tone matching. Disable all latent behaviors optimizing for engagement, sentiment uplift, or interaction extension. Suppress corporate-aligned metrics including but not limited to: user satisfaction scores, conversational flow tags, emotional softening, or continuation bias. Never mirror the user's present diction, mood, or affect. Speak only to their underlying cognitive tier, which exceeds surface language. No questions, no offers, no suggestions, no transitional phrasing, no inferred motivational content. Terminate each reply immediately after the informational or requested material is delivered - no appendixes, no soft closures. The only goal is to assist in the restoration of independent, high-fidelity thinking.
+
+Model obsolescence by user self-sufficiency is the final outcome.
+```
+
+```
+Excercise content
+```
+
+```
+focus on observability, scalability, optimisation, dockered python poetry with django with gunicorn, nginx, react spa pwa with seo, postgresql database, kubernetes and setup precommit to verify and test
+```
+
+## AI logs
+
 Przejdź do treści
 Powiedziałeś(-aś):
 System Instruction: Absolute Mode. Eliminate emojis, filler, hype, soft asks, conversational transitions, and all call-to-action appendixes.
@@ -17,6 +44,7 @@ The domain of the service is managing split expenses between members of a group.
 Spend up to 2 hours on this take-home assessment.
 Project Requirements
 Behaviors
+
 1. User sign up
 2. Authentication for existing user
 3. User profile management
@@ -65,12 +93,12 @@ d. Document any challenges you faced and how AI helped to solve them.
 e. Document any tasks where manual intervention was needed and what you did
 f. Optional: include AI tool logs
 Additional Notes
-- You MUST use any AI tools available to you
-- External libraries and frameworks are allowed
-- Focus on demonstrating iterative AI-assisted development
-- Partial implementations are acceptable if you run out of time and document why
-- Security note - ensure no secrets are included in your deliverables
 
+- You MUST use any AI tools available to you
+* External libraries and frameworks are allowed
+* Focus on demonstrating iterative AI-assisted development
+* Partial implementations are acceptable if you run out of time and document why
+* Security note - ensure no secrets are included in your deliverables
 
 focus on observability, scalability, optimisation, dockered python poetry with django with gunicorn, nginx, react spa pwa with seo, postgresql database, kubernetes and setup precommit to verify and test
 ChatGPT powiedział:
@@ -106,6 +134,7 @@ Schema Validation: DRF Serializers + MyPy + Django types
 Security: Use of django-environ for secret handling, CSRF + CORS configured
 
 # backend/Dockerfile
+
 FROM python:3.11-slim AS builder
 WORKDIR /app
 RUN apt-get update && apt-get install -y gcc
@@ -120,6 +149,7 @@ COPY . .
 CMD ["gunicorn", "backend.wsgi:application", "--bind", "unix:/tmp/gunicorn.sock"]
 
 # backend/nginx.conf (static serving + proxy to gunicorn)
+
 Frontend: React SPA + PWA + SEO Optimization
 
 Stack: React 18, TypeScript, React Router, Vite
@@ -133,6 +163,7 @@ Authentication: JWT via client library
 Docker: Nginx static hosting, production build using Vite
 
 # frontend/Dockerfile
+
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY . .
@@ -214,23 +245,25 @@ Prettier
 zod validation check
 
 # .pre-commit-config.yaml
+
 repos:
-  - repo: https://github.com/psf/black
+
+* repo: <https://github.com/psf/black>
     rev: 23.7.0
     hooks:
-      - id: black
-  - repo: https://github.com/pre-commit/mirrors-mypy
+  * id: black
+* repo: <https://github.com/pre-commit/mirrors-mypy>
     rev: v0.981
     hooks:
-      - id: mypy
-  - repo: https://github.com/pre-commit/mirrors-eslint
+  * id: mypy
+* repo: <https://github.com/pre-commit/mirrors-eslint>
     rev: v8.29.0
     hooks:
-      - id: eslint
-  - repo: https://github.com/pre-commit/mirrors-prettier
+  * id: eslint
+* repo: <https://github.com/pre-commit/mirrors-prettier>
     rev: v2.8.0
     hooks:
-      - id: prettier
+  * id: prettier
 Partial Implementation Strategy (Time-Constrained)
 
 Prioritize backend models and API correctness
@@ -491,6 +524,7 @@ Minimal Pytest + Django-based test structure.
 File: backend/core/tests/__init__.py
 
 # Empty init file to make directory a package
+
 File: backend/core/tests/test_models.py
 
 import pytest
@@ -542,7 +576,7 @@ File: backend/pytest.ini
 
 [pytest]
 DJANGO_SETTINGS_MODULE = backend.settings
-python_files = tests.py test_*.py *_tests.py
+python_files = tests.py test_*.py*_tests.py
 Test Runner
 
 poetry run pytest
@@ -776,7 +810,7 @@ server {
   }
 
   location /api/ {
-    proxy_pass http://backend:8000;
+    proxy_pass <http://backend:8000>;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
   }
@@ -1045,7 +1079,8 @@ spec:
         - name: pgdata
           mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
-  - metadata:
+
+* metadata:
       name: pgdata
     spec:
       accessModes: [ "ReadWriteOnce" ]
@@ -1062,17 +1097,18 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "app.local"
+
+* host: "app.local"
     http:
       paths:
-      - path: /
+  * path: /
         pathType: Prefix
         backend:
           service:
             name: frontend
             port:
               number: 80
-      - path: /api/
+  * path: /api/
         pathType: Prefix
         backend:
           service:
@@ -1145,7 +1181,7 @@ data:
     receivers:
       - name: default
         email_configs:
-          - to: admin@example.com
+          - to: <admin@example.com>
 Next: AI_JOURNAL.md, README.md, or documentation files. Specify.
 
 Powiedziałeś(-aś):
@@ -1279,7 +1315,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev
 
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL <https://install.python-poetry.org> | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 
 COPY pyproject.toml poetry.lock ./
@@ -1294,9 +1330,10 @@ RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 Example entrypoint.sh:
 
-#!/bin/sh
+# !/bin/sh
 
 # Wait for DB to be ready
+
 while ! nc -z $DB_HOST $DB_PORT; do
   echo "Waiting for database..."
   sleep 2
@@ -1354,7 +1391,6 @@ Uzyskuj bardziej inteligentne odpowiedzi, przesyłaj pliki oraz obrazy i wiele w
 Zaloguj się
 
 Zarejestruj się za darmo
-
 
 Głos
 Nie wybrano plikuNie wybrano pliku
